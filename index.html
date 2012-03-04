@@ -1,0 +1,84 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>simplePan</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <style>
+
+      body.loaded{
+        overflow: hidden;
+        cursor: move;
+        margin: 5px;
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+    <script type="text/javascript">
+      var $get = function(ele){
+        return document.getElementById(ele);
+      }
+      
+      window.onload = function(e){
+      
+        var image = new Image();
+        image.src = "http://upload.wikimedia.org/wikipedia/commons/d/d4/New_York_City_at_night_HDR_edit1.jpg";
+        image.onload = function (){
+          $get('viewport').innerHTML = "";
+          $get('viewport').appendChild(image);
+          document.body.className = "loaded";
+          
+        }
+        
+        window.move = {
+          status : false,
+          oldX : 0,
+          oldY : 0
+        };        
+        
+        document.body.onmousedown = function(e){
+          window.move.status = true;
+          window.move.oldX = e.pageX;
+          window.move.oldY = e.pageY;
+          e.preventDefault();
+        }
+        
+        document.body.onmouseup = function(e){
+          window.move.status = false;
+          window.move.oldX = e.pageX;
+          window.move.oldY = e.pageY;
+          e.preventDefault();
+        }
+        
+        document.body.onmousemove = function(e){          
+          if(window.move.status){
+            document.body.scrollTop  += (window.move.oldY - e.pageY);
+            document.body.scrollLeft += (window.move.oldX - e.pageX);    
+            console.log(window.move.oldY);
+            console.log(document.body.scrollTop);
+            console.log(document.body.scrollLeft);
+          }
+          e.preventDefault();
+        }              
+      }
+            
+      
+    </script>
+
+  </head>  
+  <body>
+
+    <div id="wrapper">
+      <div id="message">
+        <h1></h1>
+      </div>
+      <div id="viewport">
+        Loading...
+      </div>
+    </div>
+
+  </body>
+</html>
