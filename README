@@ -1,3 +1,6 @@
 Simple Move/Scroll with Javascript
 
-The code explains itself
+The page loads a huge IMAGE
+and makes it Movable.
+
+The image is kept with a position absolute and its co-ordiates are changed based on a mouse event
