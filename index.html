@@ -18,10 +18,11 @@ and open the template in the editor.
       }
     </style>
     <script type="text/javascript">
+      //Handy function
       var $get = function(ele){
         return document.getElementById(ele);
       }
-      
+      //Load the image and place it inside the view port on page load
       window.onload = function(e){
       
         var image = new Image();
@@ -32,34 +33,36 @@ and open the template in the editor.
           document.body.className = "loaded";
           
         }
-        
+        //Flags to map the position of the image
         window.move = {
           status : false,
           oldX : 0,
           oldY : 0
         };        
         
+        //Set the flags and the starting co-ordinates on move down
         document.body.onmousedown = function(e){
           window.move.status = true;
           window.move.oldX = e.pageX;
           window.move.oldY = e.pageY;
           e.preventDefault();
         }
-        
+        //Reset the flags on mouse up
         document.body.onmouseup = function(e){
           window.move.status = false;
           window.move.oldX = e.pageX;
           window.move.oldY = e.pageY;
           e.preventDefault();
         }
-        
+        //Check the mouse button and move the image with respect to the cursor position
         document.body.onmousemove = function(e){          
           if(window.move.status){
+            //Update position based on drag
             document.body.scrollTop  += (window.move.oldY - e.pageY);
             document.body.scrollLeft += (window.move.oldX - e.pageX);    
-            console.log(window.move.oldY);
-            console.log(document.body.scrollTop);
-            console.log(document.body.scrollLeft);
+            //console.log(window.move.oldY);
+            //console.log(document.body.scrollTop);
+            //console.log(document.body.scrollLeft);
           }
           e.preventDefault();
         }              
