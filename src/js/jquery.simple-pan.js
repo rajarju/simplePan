@@ -38,7 +38,7 @@
         $img.css({
           left: $this.width()/2 -($img.width()/2),
           top: $this.height()/2 -($img.height()/2)
-        })
+        });
       }
 
       //Set the flags and the starting co-ordinates on move down

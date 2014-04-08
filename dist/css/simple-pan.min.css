@@ -1,1 +1,1 @@
-.simple-pan .pan-image{position:relative}
+.simple-pan{overflow:hidden;cursor:move}.simple-pan .pan-image{position:relative;box-shadow:0 0 5px #000}
