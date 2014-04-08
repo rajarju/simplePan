@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>simplePan</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+
+    <link rel="stylesheet" type="text/css" href="../src/css/simple-pan.css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../src/js/jquery.simple-pan.js"></script>
+    <script type="text/javascript">     
+      $(function(){
+        $("#simplePan").simplePan({
+          css: {
+            height: '500px',
+            width: '400px',
+            margin: '50px auto'
+          }
+        });
+      });
+    </script>
+
+  </head>  
+  <body>
+
+   <div id="wrapper">     
+      <div id="simplePan">
+        <img src="sample.jpg" alt="sample image" />
+      </div>
+    </div>
+
+  </body>
+</html>

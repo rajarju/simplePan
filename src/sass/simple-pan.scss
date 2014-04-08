@@ -1,0 +1,10 @@
+@import "compass/css3/box-shadow";
+
+.simple-pan{
+  overflow: hidden;
+  cursor: move;
+  .pan-image{
+    position: relative;
+    box-shadow: (0 0 5px #000);
+  }
+}

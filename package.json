@@ -1,0 +1,33 @@
+{
+  "name": "simplePan",
+  "version": "0.0.1",
+  "description": "jQuery Plugin for Panning Images",
+  "main": "app.js",
+  "scripts": {
+    "test": "gulp test",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/naughtydavid/simplePan.git"
+  },
+  "keywords": [
+    "jquery",
+    "plugin"
+  ],
+  "author": "rajarju",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naughtydavid/simplePan/issues"
+  },
+  "homepage": "https://github.com/naughtydavid/simplePan",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-clean": "^0.2.4",
+    "gulp-uglify": "^0.2.1",
+    "gulp-jshint": "^1.5.0",
+    "gulp-compass": "^1.1.4",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0"
+  }
+}

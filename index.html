@@ -1,87 +1,70 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>simplePan</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
-    <style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-      body.loaded{
-        overflow: hidden;
-        cursor: move;
-        margin: 5px;
-        background-color: #000;
-        color: #fff;
-      }
-    </style>
-    <script type="text/javascript">
-      //Handy function
-      var $get = function(ele){
-        return document.getElementById(ele);
-      }
-      //Load the image and place it inside the view port on page load
-      window.onload = function(e){
-      
-        var image = new Image();
-        image.src = "http://upload.wikimedia.org/wikipedia/commons/d/d4/New_York_City_at_night_HDR_edit1.jpg";
-        image.onload = function (){
-          $get('viewport').innerHTML = "";
-          $get('viewport').appendChild(image);
-          document.body.className = "loaded";
-          
-        }
-        //Flags to map the position of the image
-        window.move = {
-          status : false,
-          oldX : 0,
-          oldY : 0
-        };        
-        
-        //Set the flags and the starting co-ordinates on move down
-        document.body.onmousedown = function(e){
-          window.move.status = true;
-          window.move.oldX = e.pageX;
-          window.move.oldY = e.pageY;
-          e.preventDefault();
-        }
-        //Reset the flags on mouse up
-        document.body.onmouseup = function(e){
-          window.move.status = false;
-          window.move.oldX = e.pageX;
-          window.move.oldY = e.pageY;
-          e.preventDefault();
-        }
-        //Check the mouse button and move the image with respect to the cursor position
-        document.body.onmousemove = function(e){          
-          if(window.move.status){
-            //Update position based on drag
-            document.body.scrollTop  += (window.move.oldY - e.pageY);
-            document.body.scrollLeft += (window.move.oldX - e.pageX);    
-            //console.log(window.move.oldY);
-            //console.log(document.body.scrollTop);
-            //console.log(document.body.scrollLeft);
-          }
-          e.preventDefault();
-        }              
-      }
-            
-      
-    </script>
+    <title>Simple Pan Jquery Plugin</title>
 
-  </head>  
+    <!-- Bootstrap core CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/libs/bootstrap/css/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
   <body>
 
-    <div id="wrapper">
-      <div id="message">
-        <h1></h1>
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">SimplePan</h3>
       </div>
-      <div id="viewport">
-        Loading...
+
+      <div class="jumbotron">
+        <h1>jQuery SimplePan</h1>
+        <p class="lead">jQuery plugin for panning images</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Download</a></p>
       </div>
-    </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+    </div> <!-- /container -->
 
   </body>
 </html>
