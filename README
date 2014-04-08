@@ -1,6 +1,1 @@
-Simple Move/Scroll with Javascript
-
-The page loads a huge IMAGE
-and makes it Movable.
-
-The image is kept with a position absolute and its co-ordiates are changed based on a mouse event
+Simple Pan jQuery Plugin to pan view image
