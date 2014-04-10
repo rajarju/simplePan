@@ -7,15 +7,25 @@
 
     <link rel="stylesheet" type="text/css" href="../src/css/simple-pan.css">
 
+    <style type="text/css">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      #simplePan{
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../src/js/jquery.simple-pan.js"></script>
     <script type="text/javascript">     
       $(function(){
         $("#simplePan").simplePan({
           css: {
-            height: '500px',
-            width: '400px',
-            margin: '50px auto'
+            height: '600px',
+            width: '100%'
           }
         });
       });

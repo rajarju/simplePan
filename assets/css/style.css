@@ -1,0 +1,12 @@
+body{
+  
+}
+#demo-frame{
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: inset 0 0 5px #000;
+}
