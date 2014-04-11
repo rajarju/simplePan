@@ -1,8 +1,17 @@
-/* line 3, ../sass/simple-pan.scss */
+/* line 4, ../sass/simple-pan.scss */
 .simple-pan {
   overflow: hidden;
-  cursor: move; }
-  /* line 6, ../sass/simple-pan.scss */
-  .simple-pan .pan-image {
-    position: relative;
-    box-shadow: 0 0 5px black; }
+  cursor: move;
+}
+/* line 7, ../sass/simple-pan.scss */
+.simple-pan .pan-image {
+  position: relative;
+  box-shadow: 0 0 5px black;
+}
+/* line 11, ../sass/simple-pan.scss */
+.simple-pan .pan-image.animate {
+  -webkit-transition: -webkit-transform 0.2s ease;
+  -moz-transition: -moz-transform 0.2s ease;
+  -o-transition: -o-transform 0.2s ease;
+  transition: transform 0.2s ease;
+}

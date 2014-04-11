@@ -32,6 +32,7 @@
     "gulp-zip": "^0.3.3",
     "gulp-livereload": "^1.2.0",
     "node-static": "^0.7.3",
-    "gulp-util": "^2.2.14"
+    "gulp-util": "^2.2.14",
+    "license-generator": "0.0.11"
   }
 }

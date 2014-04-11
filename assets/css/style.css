@@ -1,7 +1,12 @@
 body{
-  
+
 }
-#demo-frame{
+
+.wrapper{
+  position: relative;
+}
+
+#simplePan1{
   width: 100%;
   height: 600px;
   overflow: hidden;
@@ -10,3 +15,17 @@ body{
   border: none;
   box-shadow: inset 0 0 5px #000;
 }
+
+.simple-pan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.6);
+  -moz-box-shadow: inset 0 0 8px rgba(0,0,0,.6);
+  -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,.6);
+  z-index: 999;
+
+} 
