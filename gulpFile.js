@@ -82,9 +82,18 @@ gulp.task('compass', function() {
 
 
 gulp.task('release', function () {
-  gulp.src('dist/*')
-      .pipe(zip('release.zip'))
-      .pipe(gulp.dest('dist'));
+
+  var release = "release";
+
+  if (gutil.env.ver){
+    release += "-" + gutil.env.ver;
+  }
+
+  gulp.src([
+    'dist/**/*'
+    ])
+      .pipe(zip(release + '.zip'))
+      .pipe(gulp.dest('releases'));
 });
 
 gulp.task('default', ['clean',  'test', 'minifyJS', 'compass', 'release']);
