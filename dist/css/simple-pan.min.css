@@ -1,1 +1,1 @@
-.simple-pan{overflow:hidden;cursor:move}.simple-pan .pan-image{position:relative;box-shadow:0 0 5px #000}
+.simple-pan{overflow:hidden;cursor:move}.simple-pan .pan-image{position:relative;box-shadow:0 0 5px #000}.simple-pan .pan-image.animate{-webkit-transition:-webkit-transform .2s ease;-moz-transition:-moz-transform .2s ease;-o-transition:-o-transform .2s ease;transition:transform .2s ease}

@@ -12,7 +12,16 @@
       css: {
         height: '500px',
         width: '600px'
-      }
+      },
+      mousewheel: false,
+
+      zoomDelta : 0.1,
+      zoomAnimate: true,
+      maxZoom : 1,
+      minZoom: 0.5,
+      initialZoom : 'center',
+
+
     }, options);
 
     return this.each(function(i, j){
@@ -40,6 +49,44 @@
           top: $this.height()/2 -($img.height()/2)
         });
       }
+
+      if(settings.mousewheel){      
+        if(typeof $.fn.mousewheel !== "undefined"){
+
+          var scale, newScale = 1;
+
+          if(settings.zoomAnimate){
+            $img.addClass('animate');
+          }
+
+
+          $this.on('mousewheel', function(e){
+            e.preventDefault();
+            console.log(e.deltaY, e.deltaX);
+            newScale = scale + e.deltaY * settings.zoomDelta;      
+
+            if(newScale <= settings.maxZoom && newScale >= settings.minZoom){
+              scale = newScale;      
+              $img.css({
+                'transform' : 'scale(' + scale + ')',
+                '-webkit-transform' : 'scale(' + scale + ')',
+                '-moz-transform' : 'scale(' + scale + ')',
+                '-o-transform' : 'scale(' + scale + ')',
+                '-ms-transform' : 'scale(' + scale + ')'
+              });              
+            }
+
+
+          });
+
+
+
+        }
+        else{
+          alert("jQuery Mousewheel plugin missing");
+        }
+      }
+
 
       //Set the flags and the starting co-ordinates on move down
       $this.on('mousedown', function(e){
