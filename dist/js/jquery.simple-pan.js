@@ -53,7 +53,7 @@
       if(settings.mousewheel){      
         if(typeof $.fn.mousewheel !== "undefined"){
 
-          var scale, newScale = 1;
+          var scale = 1, newScale = 1;
 
           if(settings.zoomAnimate){
             $img.addClass('animate');
