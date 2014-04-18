@@ -49,4 +49,9 @@
           equal($img.css('left'), $this.width()/2 -($img.width()/2) + "px", "Left Position Correct");
           equal($img.css('top'), $this.height()/2 -($img.height()/2) + "px", "Top Position Correct");
         });
+
+        
+
+
+
       });

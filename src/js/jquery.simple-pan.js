@@ -1,11 +1,34 @@
+
 /**
  * Simple Pan jQuery Plugin
  * ========================
  * Adds Simple Panning of Image Capability to images inside a container.
+ * 
+ * Options
+ * css :        [JSON] Css properties for the Image Container
+ * mousewheel:  [BOOLEAN] (Requires jQuery MouseWheel plugin). 
+ *              Used for Zooming in and Zooming out
+ * zoomDelta:   [FLOAT] Steps to zoom  on each click
+ * zoomAnimate: [BOOLEAN] Enable Disable CSS3 Animation
+ * maxZoom:     [FLOAT] Maximum zoom
+ * minZoom:     [FLOAT] Minimum zoom
+ * 
+ * initialZoom: [string/FLOAT] Can describe how the image 
+ *              should be zoomed and fitted
+ * controls:    [BOOLEAN] Flag set to show/hide controls
  */
 (function($){
 
   $.fn.simplePan = function(options){
+
+    // Template for controls to be shown
+    // Controls include
+    // 1. Zoom IN
+    // 2. Zoom Out
+    // 3. View Finder
+    var controlsTpl = function(){
+
+    };
 
     var settings = $.extend({
       centerImage: true,
@@ -42,7 +65,9 @@
         oldY : 0
       };        
       
+      $this.scale = 1;
 
+      // Initialy Position image in center
       if(settings.centerImage){
         $img.css({
           left: $this.width()/2 -($img.width()/2),
@@ -50,10 +75,43 @@
         });
       }
 
+      if(settings.initialZoom){
+
+        if( typeof settings.initialZoom == "number"){        
+          $this.scale = settings.initialZoom;
+          $img.css({
+            'transform' : 'scale(' + $this.scale + ')',
+            '-webkit-transform' : 'scale(' + $this.scale + ')',
+            '-moz-transform' : 'scale(' + $this.scale + ')',
+            '-o-transform' : 'scale(' + $this.scale + ')',
+            '-ms-transform' : 'scale(' + $this.scale + ')'
+          });     
+        }
+        /**
+         * Here we try to fix the zoom level based on image dimensions
+         */
+        if( typeof settings.initialZoom == "string"){
+          switch(settings.initialZoom){
+            case 'fit' : 
+            break;
+            case 'fit-width' : 
+            break;
+            case 'fit-height' : 
+            break;
+            case 'fill' : 
+            break;
+            case 'fill-width' : 
+            break;
+            case 'fill-height' : 
+            break;
+          }
+        }
+      }
+
       if(settings.mousewheel){      
         if(typeof $.fn.mousewheel !== "undefined"){
 
-          var scale = 1, newScale = 1;
+          var newScale = $this.scale;
 
           if(settings.zoomAnimate){
             $img.addClass('animate');
@@ -62,17 +120,16 @@
 
           $this.on('mousewheel', function(e){
             e.preventDefault();
-            console.log(e.deltaY, e.deltaX);
-            newScale = scale + e.deltaY * settings.zoomDelta;      
+            newScale = $this.scale + e.deltaY * settings.zoomDelta;      
 
             if(newScale <= settings.maxZoom && newScale >= settings.minZoom){
-              scale = newScale;      
+              $this.scale = newScale;      
               $img.css({
-                'transform' : 'scale(' + scale + ')',
-                '-webkit-transform' : 'scale(' + scale + ')',
-                '-moz-transform' : 'scale(' + scale + ')',
-                '-o-transform' : 'scale(' + scale + ')',
-                '-ms-transform' : 'scale(' + scale + ')'
+                'transform' : 'scale(' + $this.scale + ')',
+                '-webkit-transform' : 'scale(' + $this.scale + ')',
+                '-moz-transform' : 'scale(' + $this.scale + ')',
+                '-o-transform' : 'scale(' + $this.scale + ')',
+                '-ms-transform' : 'scale(' + $this.scale + ')'
               });              
             }
 
@@ -93,7 +150,6 @@
         $this.move.status = true;
         $this.move.oldX = (e.pageX - $img.offset().left);
         $this.move.oldY = (e.pageY - $img.offset().top);
-        console.log($this.move);
         e.preventDefault();
       });
       //Reset the flags on mouse up
@@ -102,7 +158,6 @@
         $this.move.oldX = (e.pageX - $img.offset().left);
         $this.move.oldY = (e.pageY - $img.offset().top);
         e.preventDefault();
-        console.log($this.move);
       });
       //Check the mouse button and move the image with respect to the cursor position
       $this.on('mousemove', function(e){          

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="jQuery Simple Pan. Plugin pan images">
+    <meta name="author" content="Arjun">
 
     <title>Simple Pan Jquery Plugin</title>
 
@@ -14,8 +14,7 @@
 
     <!-- Code Highlighter -->
     <link href="assets/libs/bootstrap/css/jumbotron-narrow.css" rel="stylesheet">
-    <link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <link href="libs/sh/styles/SyntaxHighlighter.css" rel="stylesheet" type="text/css" />
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -67,7 +66,7 @@
             <h4>Usage</h4>
             <p>Simple jQuery plugin to PAN images</p>
 
-            <pre class="brush:js">
+            <pre class="javascript" name="code">
               $(function(){
                 $("#simplePan").simplePan({
                   css: {
@@ -99,7 +98,7 @@
             <h4>Usage</h4>
             <p>Simple jQuery plugin to PAN images</p>
 
-            <pre class="brush:js">
+            <pre class="javascript" name="code">
               $(function(){
                 $("#simplePan2").simplePan({
                   css: {
@@ -166,9 +165,9 @@
     </div> <!-- /container -->
 
 
-    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
-    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shAutoloader.js" type="text/javascript"></script>
-    <script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js" type="text/javascript"></script>
+    <script src="libs/sh/scripts/shCore.js" type="text/javascript"></script>
+    <script language="javascript" src="libs/sh/scripts/shBrushCSharp.js"></script>
+    <script src="libs/sh/scripts/shBrushJScript.js" type="text/javascript"></script>
 
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -191,13 +190,13 @@
           },
           centerImage: true,
           mousewheel: true,
-          zoomAnimate: true
+          zoomAnimate: true,
+          initialZoom: 0.5,
         });
       });
-    </script>
 
-    <script type="text/javascript">
-      SyntaxHighlighter.all()
+      dp.SyntaxHighlighter.ClipboardSwf = 'libs/sh/scripts/clipboard.swf';
+      dp.SyntaxHighlighter.HighlightAll('code');
     </script>
   </body>
 </html>

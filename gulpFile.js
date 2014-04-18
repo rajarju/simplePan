@@ -41,10 +41,11 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
-gulp.task('test', function() {
+gulp.task('jshint', function() {
   gulp.src([
     'gulpFile.js',
-    'src/js/*'
+    'src/js/*',
+    'test/tests.js'
     ])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
@@ -96,4 +97,4 @@ gulp.task('release', function () {
       .pipe(gulp.dest('releases'));
 });
 
-gulp.task('default', ['clean',  'test', 'minifyJS', 'compass', 'release']);
+gulp.task('default', ['clean',  'jshint', 'minifyJS', 'compass']);
