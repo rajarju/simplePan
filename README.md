@@ -1,4 +1,4 @@
-#Simple Pan jQuery Plugin [![Build Status](https://secure.travis-ci.org/naughtydavid/simplePan.svg?branch=master)](http://travis-ci.org/naughtydavid/simplePan)
+#Simple Pan jQuery Plugin [![Build Status](https://travis-ci.org/naughtydavid/simplePan.svg?branch=master)](https://travis-ci.org/naughtydavid/simplePan)
 
 Basic Plugin for panning Images.
 
