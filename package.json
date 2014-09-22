@@ -33,6 +33,12 @@
     "gulp-livereload": "^1.2.0",
     "node-static": "^0.7.3",
     "gulp-util": "^2.2.14",
-    "license-generator": "0.0.11"
+    "license-generator": "0.0.11",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-spec-reporter": "0.0.13",
+    "gulp-karma": "0.0.4",
+    "phantomjs": "^1.9.9",
+    "karma": "^0.12.23"
   }
 }

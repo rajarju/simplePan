@@ -97,4 +97,6 @@ gulp.task('release', function () {
       .pipe(gulp.dest('releases'));
 });
 
+gulp.task('test', ['jshint', 'compass']);
+
 gulp.task('default', ['clean',  'jshint', 'minifyJS', 'compass']);
